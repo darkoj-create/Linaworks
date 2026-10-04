@@ -2,3 +2,22 @@ const paths={chart:'<path d="M3 21V13h4v8M10 21V8h4v13M17 21V3h4v18"/>',code:'<p
 document.querySelectorAll('[data-icon]').forEach(el=>el.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true">'+paths[el.dataset.icon]+'</svg>');
 const menu=document.querySelector('.menu'),nav=document.querySelector('nav');menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',open);menu.setAttribute('aria-label',open?'Close navigation':'Open navigation');menu.textContent=open?'×':'☰'});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.textContent='☰';nav.querySelectorAll('a').forEach(x=>x.classList.toggle('active',x===a))}));
 const cards=[...document.querySelectorAll('.project')],dialog=document.querySelector('dialog');function openProject(card){document.querySelector('#detail-image').src=card.querySelector('img').src;document.querySelector('#detail-image').alt=card.querySelector('img').alt;document.querySelector('#detail-label').textContent=card.querySelector('.eyebrow').textContent;document.querySelector('#detail-title').textContent=card.querySelector('h3').textContent;document.querySelector('#detail-description').textContent=card.querySelector('.project-copy>p:not(.eyebrow)').textContent;dialog.showModal();document.body.classList.add('modal-open')}cards.forEach(card=>{card.addEventListener('click',()=>openProject(card));card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openProject(card)}})});document.querySelector('.close').addEventListener('click',()=>dialog.close());dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close()}});dialog.addEventListener('close',()=>document.body.classList.remove('modal-open'));document.querySelector('#view-projects').addEventListener('click',()=>openProject(cards[0]));
+
+// Final LINAWORKS identity: preserve the existing site and swap only the brand mark.
+const finalLogo='/assets/logo-lina-dark.svg';
+document.querySelectorAll('.brand').forEach(brand=>{
+  const img=brand.querySelector('img');
+  if(img){img.src=finalLogo;img.alt='LINAWORKS — Data · Systems · AI · Products';}
+  const legacyText=brand.querySelector('span');
+  if(legacyText) legacyText.style.display='none';
+  brand.classList.add('brand-final');
+});
+const logoStyle=document.createElement('style');
+logoStyle.textContent=`
+.brand.brand-final{display:flex;align-items:center;gap:0;white-space:nowrap;padding:0}
+.brand.brand-final img{width:130px;height:73px;object-fit:contain;object-position:center}
+.footer .brand.brand-final img{width:150px;height:auto}
+@media(max-width:900px){.header .brand.brand-final img{width:116px;height:65px}}
+@media(max-width:680px){.header .brand.brand-final img{width:108px;height:61px}.footer .brand.brand-final img{width:138px;height:auto}}
+`;
+document.head.appendChild(logoStyle);
