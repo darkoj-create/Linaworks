@@ -1,13 +1,14 @@
-# LINAWORKS
+# LINAWORKS website
 
-Business systems, data, CRM, automation, AI and digital products.
+Clean static business site built for easy iteration.
 
-## Deployment workflow
+## Edit content
+Business copy, services, projects, stats, links and tech stack are in `js/content.js`.
 
-- `main` is production only.
-- All changes are made on a feature/preview branch first.
-- Vercel Preview must be visually checked on desktop and mobile before merge.
-- Brand assets and portfolio screenshots are treated as source assets and are not regenerated or cropped unless explicitly requested.
-- Production is updated only by merging an approved pull request into `main`.
+## Edit layout/style
+- `index.html` — page structure only
+- `styles.css` — all visual design and responsive rules
+- `js/site.js` — rendering, navigation and project modal behavior
+- `assets/` — hero, project visuals and vector logo
 
-Tagline: **Smart by nature. Loyal by design.**
+The site has no framework or build step. Vercel serves it as a static project.
