@@ -13,8 +13,8 @@
     local:'Opis ostaje u ovom pregledniku dok ga sami ne pošaljete e-poštom.',
     free:'Za razgovor o vašem konkretnom opisu još trebam AI povezivanje. Mogu prenijeti vaš opis u kontaktni obrazac kako biste ga poslali Darku. Ondje ga možete urediti prije slanja.',
     answers:[
-      'Kad se izvještaji rade ručno, dobar početak je utvrditi izvore podataka, KPI-jeve i odluke koje izvještaj treba podržati. Darkovo iskustvo uključuje cjelovit Customer Care reporting, planiranje kapaciteta i autorski pregled rezultata u reguliranom fintechu. Koji izvještaj vašem timu oduzima najviše vremena?',
-      'Darkovo iskustvo uključuje Salesforce asistenta koji prevodi komunikaciju, sažima korisnički upit i predlaže nacrt odgovora, uz compliance zahtjeve i Salesforce Trust Layer u reguliranom fintechu. Za vaš tim prvi korak može biti jedan jasno definiran postupak. Što agenti danas rade ručno?',
+      'Kad se izvještaji rade ručno, dobar početak je utvrditi izvore podataka, KPI-jeve i odluke koje izvještaj treba podržati. LinaWorks povezuje izvore podataka, automatizaciju i pregled rezultata prema potrebama organizacije. Koji izvještaj vašem timu oduzima najviše vremena?',
+      'Salesforce i AI mogu pomoći pri obradi upita, pronalaženju informacija i pripremi odgovora uz ljudsku provjeru. Za vaš tim prvi korak može biti jedan jasno definiran postupak. Što agenti danas rade ručno?',
       'Dobri kandidati su povezivanje tablica, ponavljajuće izvještavanje, rutinske obavijesti i prijenos podataka između sustava. Krenemo od jednog postupka: ulazni podaci, potrebni koraci, iznimke i očekivani rezultat. Opišite primjer pa ga možemo prenijeti u upit.'
     ]
   } : {
@@ -27,8 +27,8 @@
     local:'Your description stays in this browser until you choose to send it by email.',
     free:'I still need an AI connection to discuss your specific description. I can transfer it to the contact form for you to send to Darko. You can edit it there before sending.',
     answers:[
-      'When reports are assembled manually, start with the data sources, KPIs and decisions the report should support. Darko’s experience includes end-to-end customer care reporting, capacity planning and human-written performance overviews in regulated fintech. Which report takes your team the most time?',
-      'Darko’s experience includes a Salesforce assistant that translates conversations, summarises customer requests and suggests response drafts, with compliance requirements and Salesforce Trust Layer in regulated fintech. A first step for your team can focus on one well-defined workflow. What do your agents do manually today?',
+      'When reports are assembled manually, start with the data sources, KPIs and decisions the report should support. LinaWorks connects data sources, automation and reporting around the needs of each organisation. Which report takes your team the most time?',
+      'Salesforce and AI can support request handling, information retrieval and response drafting with human review. A first step for your team can focus on one well-defined workflow. What do your agents do manually today?',
       'Good candidates include combining spreadsheets, recurring reports, routine notifications and transferring data between systems. Start with one workflow: inputs, steps, exceptions and the result you need. Describe an example and we can transfer it to an inquiry.'
     ]
   };
@@ -81,7 +81,7 @@
     const button = document.createElement('button');button.type = 'button';button.textContent = topic;
     button.addEventListener('click', () => {
       message(topic,'user');service = ['reporting','salesforce','automation'][index];
-      message(t.answers[index],'assistant',`${prefix}/${index === 2 ? 'solutions#google-apps-script' : 'fintech-customer-care'}`);
+      message(t.answers[index],'assistant',`${prefix}/${['reporting','solutions#salesforce','solutions#google-apps-script'][index]}`);
       handoff.href = `${prefix}/contact?service=${service}`;
     });
     host.querySelector('.lina-chat-topics').append(button);
