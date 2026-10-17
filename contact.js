@@ -7,6 +7,14 @@
   const service = form.elements.service;
   const selected = new URLSearchParams(location.search).get('service');
   if (Array.from(service.options).some(option => option.value === selected)) service.value = selected;
+  try {
+    const draft = JSON.parse(sessionStorage.getItem('linaworks-inquiry') || 'null');
+    if (draft && typeof draft.description === 'string') {
+      form.elements.problem.value = draft.description.slice(0, 4000);
+      if (Array.from(service.options).some(option => option.value === draft.service)) service.value = draft.service;
+      sessionStorage.removeItem('linaworks-inquiry');
+    }
+  } catch { /* Contact works normally when browser storage is unavailable. */ }
   const status = document.getElementById('inquiry-status');
   function prepare() {
     if (!form.reportValidity()) return null;
