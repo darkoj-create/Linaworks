@@ -7,35 +7,35 @@
     ask:'Pitaj Linu', title:'Lina', sub:'Vaša vodičica kroz LinaWorks', close:'Zatvori razgovor', badge:'Pregled · bez AI povezivanja',
     intro:'Bok, ja sam Lina. Dobre ideje volim pretvoriti u koristan prvi korak. Što vas zanima?',
     notice:'Zasad nudim pripremljene odgovore. Slobodni AI razgovor stiže nakon povezivanja API-ja.',
-    topics:['Izvještaji i kapaciteti','Salesforce i AI','Što mogu automatizirati?'],
+    topics:['Izvještaji','AI i integracije','Aplikacija po mjeri'],
     label:'Opišite svoj problem', placeholder:'Primjer: svaki tjedan spajamo pet tablica…', send:'Nastavi',
-    handoff:'Pripremi upit za Darka ↗', clear:'Novi razgovor', more:'Pogledaj primjer →',
+    handoff:'Pripremi upit ↗', clear:'Novi razgovor', more:'Pogledaj primjer →',
     local:'Opis ostaje u ovom pregledniku dok ga sami ne pošaljete e-poštom.',
-    free:'Za razgovor o vašem konkretnom opisu još trebam AI povezivanje. Mogu prenijeti vaš opis u kontaktni obrazac kako biste ga poslali Darku. Ondje ga možete urediti prije slanja.',
+    free:'Za razgovor o vašem konkretnom opisu još trebam AI povezivanje. Mogu prenijeti vaš opis u kontaktni obrazac kako biste poslali upit. Ondje ga možete urediti prije slanja.',
     answers:[
       'Kad se izvještaji rade ručno, dobar početak je utvrditi izvore podataka, KPI-jeve i odluke koje izvještaj treba podržati. LinaWorks povezuje izvore podataka, automatizaciju i pregled rezultata prema potrebama organizacije. Koji izvještaj vašem timu oduzima najviše vremena?',
       'Salesforce i AI mogu pomoći pri obradi upita, pronalaženju informacija i pripremi odgovora uz ljudsku provjeru. Za vaš tim prvi korak može biti jedan jasno definiran postupak. Što agenti danas rade ručno?',
-      'Dobri kandidati su povezivanje tablica, ponavljajuće izvještavanje, rutinske obavijesti i prijenos podataka između sustava. Krenemo od jednog postupka: ulazni podaci, potrebni koraci, iznimke i očekivani rezultat. Opišite primjer pa ga možemo prenijeti u upit.'
+      'Krenimo od toga tko će koristiti aplikaciju i što treba moći napraviti. SOV povezuje članove, opremu, predaje i dokumentaciju, a Moody pokazuje primjenu unosa i analitike. Koji bi problem rješavala vaša aplikacija?'
     ]
   } : {
     ask:'Ask Lina', title:'Lina', sub:'Your guide to LinaWorks', close:'Close conversation', badge:'Preview · AI not connected',
     intro:'Hi, I’m Lina. I like turning good ideas into a useful first step. What would you like to explore?',
     notice:'For now, I offer prepared answers. Open-ended AI chat will follow once the API is connected.',
-    topics:['Reporting & capacity','Salesforce & AI','What can I automate?'],
+    topics:['Reporting','AI & integrations','Custom application'],
     label:'Describe your problem', placeholder:'For example: we merge five spreadsheets every week…', send:'Continue',
-    handoff:'Prepare an inquiry for Darko ↗', clear:'New conversation', more:'See an example →',
+    handoff:'Prepare an inquiry ↗', clear:'New conversation', more:'See an example →',
     local:'Your description stays in this browser until you choose to send it by email.',
-    free:'I still need an AI connection to discuss your specific description. I can transfer it to the contact form for you to send to Darko. You can edit it there before sending.',
+    free:'I still need an AI connection to discuss your specific description. I can transfer it to the contact form for you to send. You can edit it there before sending.',
     answers:[
       'When reports are assembled manually, start with the data sources, KPIs and decisions the report should support. LinaWorks connects data sources, automation and reporting around the needs of each organisation. Which report takes your team the most time?',
       'Salesforce and AI can support request handling, information retrieval and response drafting with human review. A first step for your team can focus on one well-defined workflow. What do your agents do manually today?',
-      'Good candidates include combining spreadsheets, recurring reports, routine notifications and transferring data between systems. Start with one workflow: inputs, steps, exceptions and the result you need. Describe an example and we can transfer it to an inquiry.'
+      'Start with who will use the application and what they need to do. SOV connects members, equipment, submissions and documentation; Moody demonstrates check-ins and analytics. What would your application help people do?'
     ]
   };
   const avatar = '<span class="lina-chat-avatar" aria-hidden="true"><img src="/assets/lina-sunset-brand.jpg" alt="" width="1536" height="864"></span>';
   const host = document.createElement('div');
   host.className = 'lina-chat';
-  host.innerHTML = `<button type="button" id="lina-chat-launcher" aria-haspopup="dialog" aria-expanded="false" aria-controls="lina-chat-panel">${avatar}<span>${t.ask}<small>LinaWorks</small></span><span class="lina-launch-spark" aria-hidden="true">✦</span></button><section id="lina-chat-panel" role="dialog" aria-modal="true" aria-labelledby="lina-chat-title" hidden><header class="lina-chat-header">${avatar}<div><h2 id="lina-chat-title">${t.title}<span aria-hidden="true">✦</span></h2><p>${t.sub}</p></div><button type="button" class="lina-chat-close" aria-label="${t.close}">×</button></header><div class="lina-chat-disclosure"><span></span>${t.badge}</div><div class="lina-chat-log" role="log" aria-live="polite" aria-relevant="additions" tabindex="0"></div><div class="lina-chat-topics"></div><div class="lina-chat-next"><a class="lina-chat-handoff" href="${prefix}/contact">${t.handoff}</a><button type="button" class="lina-chat-reset">${t.clear}</button></div><form class="lina-chat-form"><label for="lina-chat-input">${t.label}</label><div><textarea id="lina-chat-input" rows="2" maxlength="1500" placeholder="${t.placeholder}" required></textarea><button type="submit" aria-label="${t.send}">↑</button></div><p>${t.local}</p></form></section>`;
+  host.innerHTML = `<button type="button" id="lina-chat-launcher" aria-label="${t.ask}" aria-haspopup="dialog" aria-expanded="false" aria-controls="lina-chat-panel">${avatar}<span>${t.ask}<small>LinaWorks</small></span><span class="lina-launch-spark" aria-hidden="true">✦</span></button><section id="lina-chat-panel" role="dialog" aria-modal="true" aria-labelledby="lina-chat-title" hidden><header class="lina-chat-header">${avatar}<div><h2 id="lina-chat-title">${t.title}<span aria-hidden="true">✦</span></h2><p>${t.sub}</p></div><button type="button" class="lina-chat-close" aria-label="${t.close}">×</button></header><div class="lina-chat-disclosure"><span></span>${t.badge}</div><div class="lina-chat-log" role="log" aria-live="polite" aria-relevant="additions" tabindex="0"></div><div class="lina-chat-topics"></div><div class="lina-chat-next"><a class="lina-chat-handoff" href="${prefix}/contact">${t.handoff}</a><button type="button" class="lina-chat-reset">${t.clear}</button></div><form class="lina-chat-form"><label for="lina-chat-input">${t.label}</label><div><textarea id="lina-chat-input" rows="2" maxlength="1500" placeholder="${t.placeholder}" required></textarea><button type="submit" aria-label="${t.send}">↑</button></div><p>${t.local}</p></form></section>`;
   document.body.append(host);
   const launcher = host.querySelector('#lina-chat-launcher');
   const panel = host.querySelector('#lina-chat-panel');
@@ -80,8 +80,8 @@
   t.topics.forEach((topic,index) => {
     const button = document.createElement('button');button.type = 'button';button.textContent = topic;
     button.addEventListener('click', () => {
-      message(topic,'user');service = ['reporting','salesforce','automation'][index];
-      message(t.answers[index],'assistant',`${prefix}/${['reporting','solutions#salesforce','solutions#google-apps-script'][index]}`);
+      message(topic,'user');service = ['reporting','ai','app'][index];
+      message(t.answers[index],'assistant',`${prefix}/${['reporting','solutions#ai-consulting','sov-web'][index]}`);
       handoff.href = `${prefix}/contact?service=${service}`;
     });
     host.querySelector('.lina-chat-topics').append(button);
