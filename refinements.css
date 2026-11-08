@@ -21,7 +21,7 @@ html{scroll-padding-top:110px}section[id],article[id],div[id]{scroll-margin-top:
 /* LinaWorks hero image: clean separate photo, without baked-in lettering. */
 .hero .lina-hero-art{position:relative;isolation:isolate;overflow:hidden;height:clamp(600px,54vw,800px);margin-right:0;min-width:0;background:#111419}
 .hero .lina-hero-art>img{display:block;width:100%;height:100%;max-width:none;object-fit:cover;object-position:100% 50%;transform:none;filter:none}
-.hero .lina-hero-art::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,#111419 0%,#111419e8 7%,#11141977 23%,transparent 47%),linear-gradient(0deg,#111419 0%,transparent 17%)}
+.hero .lina-hero-art::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,#111419 0%,#111419cc 5%,transparent 21%),linear-gradient(0deg,#111419 0%,transparent 17%)}
 .site-header .lina-brand>img,footer .lina-brand>img{display:block;flex:0 0 auto;object-fit:contain;object-position:center;max-width:none;overflow:visible;width:92px;height:54px}
 @media(max-width:1080px){.site-header .lina-brand>img{width:74px;height:46px}}
 @media(max-width:720px){.hero .lina-hero-art{height:auto;aspect-ratio:16/10;width:100%;margin-right:0}.hero .lina-hero-art>img{object-position:70% 50%}.hero .lina-hero-art::after{background:linear-gradient(180deg,#111419 0%,transparent 12%),linear-gradient(0deg,#111419 0%,transparent 25%)}.site-header .lina-brand>img{width:62px;height:43px}}
