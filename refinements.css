@@ -20,12 +20,13 @@ html{scroll-padding-top:110px}section[id],article[id],div[id]{scroll-margin-top:
 /* LinaWorks brand repair — keep generated copy out of the visible hero and show the whole mark. */
 .lina-hero-art{isolation:isolate;background:#111419}
 .lina-hero-art>img{display:block;width:100%;height:100%;object-fit:cover;object-position:85% center}
-/* The previous composite JPEG contains a baked-in headline on its left half.
-   Until the clean photo is installed, frame only the image's rightmost area. */
-.lina-hero-art>img[src*="lina-sunset-brand"]{transform:scale(1.52);transform-origin:right center;object-position:100% 50%;filter:brightness(1.08) saturate(1.08)}
+/* The old composite contains embedded lettering. A taller, right-aligned
+   image window hides it without amputating Lina’s paws or ears. */
+.lina-hero-art{height:clamp(560px,55vw,840px)}
+.lina-hero-art>img[src*="lina-sunset-brand"]{transform:none;object-position:100% 50%;filter:brightness(1.08) saturate(1.08)}
 .lina-hero-art::after{background:linear-gradient(90deg,#111419 0%,#111419e8 9%,#11141955 27%,transparent 50%),linear-gradient(0deg,#111419 0%,transparent 21%)}
 .site-header .lina-brand>img{display:block;flex:none;width:91px;height:56px;max-width:none;object-fit:contain;object-position:center;overflow:visible}
 footer .lina-brand>img{display:block;flex:none;width:93px;height:56px;max-width:none;object-fit:contain;overflow:visible}
 @media(max-width:1080px){.site-header .lina-brand>img{width:77px;height:48px}}
-@media(max-width:720px){.site-header .lina-brand>img{width:65px;height:43px}.lina-hero-art>img[src*="lina-sunset-brand"]{transform:scale(1.58)}.lina-hero-art::after{background:linear-gradient(180deg,#111419 0%,transparent 14%),linear-gradient(0deg,#111419 0%,transparent 25%)}}
+@media(max-width:720px){.site-header .lina-brand>img{width:65px;height:43px}.lina-hero-art{height:min(105vw,680px)}.lina-hero-art::after{background:linear-gradient(180deg,#111419 0%,transparent 14%),linear-gradient(0deg,#111419 0%,transparent 25%)}}
 @media(max-width:540px){.site-header .lina-brand>img{width:57px;height:39px}.site-header .lina-brand{gap:9px}footer .lina-brand>img{width:80px;height:49px}}
